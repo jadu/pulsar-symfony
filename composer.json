@@ -1,0 +1,15 @@
+{
+    "name": "jadu/pulsar-symfony",
+    "description": "Integrate Jadu's Pulsar in to Symfony as a bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "jadu/pulsar": "^10.3",
+        "symfony/framework-bundle": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jadu\\Bundle\\PulsarBundle\\": "src"
+        }
+    }
+}
