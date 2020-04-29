@@ -1,1 +1,1 @@
-# pulsar-symfony-bundle
+# pulsar-symfony
