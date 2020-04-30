@@ -4,12 +4,24 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "require": {
-        "jadu/pulsar": "^10.3",
-        "symfony/framework-bundle": "^3.4"
+        "jadu/pulsar": "dev-symfony-forms as 10.3.1",
+        "symfony/framework-bundle": "^3.4",
+        "symfony/twig-bundle": "^3.4",
+        "symfony/form": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "symfony/translation": "^3.4",
+        "symfony/twig-bridge": "^3.4"
     },
     "autoload": {
         "psr-4": {
             "Jadu\\Bundle\\PulsarBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jadu\\Bundle\\PulsarBundle\\": "tests/unit"
         }
     }
 }
