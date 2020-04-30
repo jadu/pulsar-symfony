@@ -1,0 +1,20 @@
+services:
+    Jadu\Pulsar\Twig\Extension\ArrayExtension:
+        tags:
+            - { name: twig.extension }
+
+    Jadu\Pulsar\Twig\Extension\AttributeParserExtension:
+        tags:
+            - { name: twig.extension }
+
+    Jadu\Pulsar\Twig\Extension\HelperOptionsModifierExtension:
+        tags:
+            - { name: twig.extension }
+
+    Jadu\Pulsar\Twig\Extension\RelativeTimeExtension:
+        tags:
+            - { name: twig.extension }
+
+    Jadu\Pulsar\Twig\Extension\TabsExtension:
+        tags:
+            - { name: twig.extension }
