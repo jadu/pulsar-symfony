@@ -9,13 +9,17 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldBasic ()
+    public function testUrlFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url.html.twig');
@@ -24,12 +28,16 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldRequired ()
+    public function testUrlFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url-required.html.twig');
@@ -38,16 +46,20 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldHelp ()
+    public function testUrlFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url-help.html.twig');
@@ -56,16 +68,20 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldPrependText ()
+    public function testUrlFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url-prepend.html.twig');
@@ -74,16 +90,20 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldAppendText ()
+    public function testUrlFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url-append.html.twig');
@@ -92,17 +112,21 @@ class UrlTypeTest extends AbstractTypeTestCase
     /**
      * @group url
      */
-    public function testUrlFieldPrependTextAppendText ()
+    public function testUrlFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', UrlType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                UrlType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/url-prepend-append.html.twig');

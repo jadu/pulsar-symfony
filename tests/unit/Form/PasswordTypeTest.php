@@ -9,13 +9,17 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldBasic ()
+    public function testPasswordFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password.html.twig');
@@ -24,12 +28,16 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldRequired ()
+    public function testPasswordFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password-required.html.twig');
@@ -38,16 +46,20 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldHelp ()
+    public function testPasswordFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password-help.html.twig');
@@ -56,16 +68,20 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldPrependpassword ()
+    public function testPasswordFieldPrependpassword()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password-prepend.html.twig');
@@ -74,16 +90,20 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldAppendpassword ()
+    public function testPasswordFieldAppendpassword()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password-append.html.twig');
@@ -92,17 +112,21 @@ class PasswordTypeTest extends AbstractTypeTestCase
     /**
      * @group password
      */
-    public function testPasswordFieldPrependpasswordAppendpassword ()
+    public function testPasswordFieldPrependpasswordAppendpassword()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PasswordType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                PasswordType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/password-prepend-append.html.twig');

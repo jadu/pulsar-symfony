@@ -9,13 +9,17 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range
      */
-    public function testRangeFieldBasic ()
+    public function testRangeFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range.html.twig');
@@ -24,12 +28,16 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range1
      */
-    public function testRangeFieldRequired ()
+    public function testRangeFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range-required.html.twig');
@@ -38,16 +46,20 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range
      */
-    public function testRangeFieldHelp ()
+    public function testRangeFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range-help.html.twig');
@@ -56,16 +68,20 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range
      */
-    public function testRangeFieldPrependText ()
+    public function testRangeFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range-prepend.html.twig');
@@ -74,16 +90,20 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range
      */
-    public function testRangeFieldAppendText ()
+    public function testRangeFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range-append.html.twig');
@@ -92,17 +112,21 @@ class RangeTypeTest extends AbstractTypeTestCase
     /**
      * @group range
      */
-    public function testRangeFieldPrependTextAppendText ()
+    public function testRangeFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RangeType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                RangeType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/range-prepend-append.html.twig');

@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class JaduPulsarExtension extends Extension
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {

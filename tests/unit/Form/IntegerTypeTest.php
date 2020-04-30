@@ -9,13 +9,17 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldBasic ()
+    public function testIntegerFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number.html.twig');
@@ -24,12 +28,16 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldRequired ()
+    public function testIntegerFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number-required.html.twig');
@@ -38,16 +46,20 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldHelp ()
+    public function testIntegerFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number-help.html.twig');
@@ -56,16 +68,20 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldPrependText ()
+    public function testIntegerFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number-prepend.html.twig');
@@ -74,16 +90,20 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldAppendText ()
+    public function testIntegerFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number-append.html.twig');
@@ -92,17 +112,21 @@ class IntegerTypeTest extends AbstractTypeTestCase
     /**
      * @group integer
      */
-    public function testIntegerFieldPrependTextAppendText ()
+    public function testIntegerFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', IntegerType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                IntegerType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/number-prepend-append.html.twig');

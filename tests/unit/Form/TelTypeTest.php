@@ -9,13 +9,17 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldBasic ()
+    public function testTelFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel.html.twig');
@@ -24,12 +28,16 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldRequired ()
+    public function testTelFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel-required.html.twig');
@@ -38,16 +46,20 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldHelp ()
+    public function testTelFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel-help.html.twig');
@@ -56,16 +68,20 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldPrependText ()
+    public function testTelFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel-prepend.html.twig');
@@ -74,16 +90,20 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldAppendText ()
+    public function testTelFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel-append.html.twig');
@@ -92,17 +112,21 @@ class TelTypeTest extends AbstractTypeTestCase
     /**
      * @group tel
      */
-    public function testTelFieldPrependTextAppendText ()
+    public function testTelFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', TelType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                TelType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/tel-prepend-append.html.twig');

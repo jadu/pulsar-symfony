@@ -9,13 +9,17 @@ class PercentTypeTest extends AbstractTypeTestCase
     /**
      * @group percent
      */
-    public function testPercentFieldBasic ()
+    public function testPercentFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PercentType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                PercentType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/percent.html.twig');
@@ -24,12 +28,16 @@ class PercentTypeTest extends AbstractTypeTestCase
     /**
      * @group percent
      */
-    public function testPercentFieldRequired ()
+    public function testPercentFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PercentType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                PercentType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/percent-required.html.twig');
@@ -38,16 +46,20 @@ class PercentTypeTest extends AbstractTypeTestCase
     /**
      * @group percent
      */
-    public function testPercentFieldHelp ()
+    public function testPercentFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PercentType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                PercentType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/percent-help.html.twig');
@@ -56,19 +68,22 @@ class PercentTypeTest extends AbstractTypeTestCase
     /**
      * @group percent
      */
-    public function testPercentFieldPrependText ()
+    public function testPercentFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', PercentType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                PercentType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/percent-prepend.html.twig');
     }
-
 }

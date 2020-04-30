@@ -9,13 +9,17 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldBasic ()
+    public function testNumberFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-label.html.twig');
@@ -24,12 +28,16 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldRequired ()
+    public function testNumberFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-required.html.twig');
@@ -38,16 +46,20 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldHelp ()
+    public function testNumberFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-help.html.twig');
@@ -56,16 +68,20 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldPrependText ()
+    public function testNumberFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-prepend.html.twig');
@@ -74,16 +90,20 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldAppendText ()
+    public function testNumberFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-append.html.twig');
@@ -92,17 +112,21 @@ class NumberTypeTest extends AbstractTypeTestCase
     /**
      * @group text
      */
-    public function testNumberFieldPrependTextAppendText ()
+    public function testNumberFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', NumberType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                NumberType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/text-prepend-append.html.twig');

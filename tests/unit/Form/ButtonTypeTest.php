@@ -9,15 +9,18 @@ class ButtonTypeTest extends AbstractTypeTestCase
     /**
      * @group button
      */
-    public function testButtonFieldBasic ()
+    public function testButtonFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ButtonType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                ButtonType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'html/button-symfony.html.twig');
     }
-
 }

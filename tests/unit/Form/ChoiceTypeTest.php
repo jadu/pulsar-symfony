@@ -11,21 +11,25 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldRadiosBasic ()
+    public function testChoiceFieldRadiosBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'expanded' => true,
-                'multiple' => false,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'expanded' => true,
+                    'multiple' => false,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice.html.twig');
@@ -34,21 +38,25 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldCheckboxBasic ()
+    public function testChoiceFieldCheckboxBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'expanded' => true,
-                'multiple' => true,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'expanded' => true,
+                    'multiple' => true,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice-checkbox.html.twig');
@@ -57,22 +65,26 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldSelectBasic ()
+    public function testChoiceFieldSelectBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'expanded' => false,
-                'multiple' => false,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
-                ],
-                'attr' => ['class' => 'js-select2']
-            ))
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'expanded' => false,
+                    'multiple' => false,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
+                    'attr' => ['class' => 'js-select2'],
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice-select.html.twig');
@@ -81,20 +93,24 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldRadiosRequired ()
+    public function testChoiceFieldRadiosRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'expanded' => true,
-                'multiple' => false,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice-required.html.twig');
@@ -103,24 +119,28 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldRadiosHelp ()
+    public function testChoiceFieldRadiosHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'expanded' => true,
-                'multiple' => false,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
-                ],
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'expanded' => true,
+                    'multiple' => false,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice-help.html.twig');
@@ -129,24 +149,28 @@ class ChoiceTypeTest extends AbstractTypeTestCase
     /**
      * @group choice
      */
-    public function testChoiceFieldCheckboxHelp ()
+    public function testChoiceFieldCheckboxHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', ChoiceType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'expanded' => true,
-                'multiple' => true,
-                'placeholder' => false,
-                'choices'  => [
-                    'Foo' => null,
-                    'Bar' => true,
-                    'Baz' => 'false',
-                ],
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                ChoiceType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'expanded' => true,
+                    'multiple' => true,
+                    'placeholder' => false,
+                    'choices' => [
+                        'Foo' => null,
+                        'Bar' => true,
+                        'Baz' => 'false',
+                    ],
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/choice-checkbox-help.html.twig');

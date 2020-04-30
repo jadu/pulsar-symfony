@@ -9,13 +9,17 @@ class MoneyTypeTest extends AbstractTypeTestCase
     /**
      * @group money
      */
-    public function testMoneyFieldBasic ()
+    public function testMoneyFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', MoneyType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                MoneyType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/money.html.twig');
@@ -24,12 +28,16 @@ class MoneyTypeTest extends AbstractTypeTestCase
     /**
      * @group money
      */
-    public function testMoneyFieldRequired ()
+    public function testMoneyFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', MoneyType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                MoneyType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/money-required.html.twig');
@@ -38,16 +46,20 @@ class MoneyTypeTest extends AbstractTypeTestCase
     /**
      * @group money
      */
-    public function testMoneyFieldHelp ()
+    public function testMoneyFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', MoneyType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                MoneyType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/money-help.html.twig');
@@ -56,16 +68,20 @@ class MoneyTypeTest extends AbstractTypeTestCase
     /**
      * @group money
      */
-    public function testMoneyFieldPrependText ()
+    public function testMoneyFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', MoneyType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                MoneyType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/money-prepend.html.twig');
@@ -74,19 +90,22 @@ class MoneyTypeTest extends AbstractTypeTestCase
     /**
      * @group money
      */
-    public function testMoneyFieldAppendText ()
+    public function testMoneyFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', MoneyType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                MoneyType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/money-append.html.twig');
     }
-
 }

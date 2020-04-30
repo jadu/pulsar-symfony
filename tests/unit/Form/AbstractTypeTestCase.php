@@ -10,7 +10,6 @@ use Jadu\Pulsar\Twig\Extension\HelperOptionsModifierExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Bridge\Twig\Form\TwigRenderer;
 use Symfony\Bridge\Twig\Form\TwigRendererEngine;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -51,12 +50,12 @@ abstract class AbstractTypeTestCase extends TestCase
         $translator->addResource('xlf', $baseDir . '/vendor/symfony/form/Resources/translations/validators.en.xlf', 'en', 'validators');
 
         $loader = new Twig_Loader_Filesystem(
-            array(
+            [
                 __DIR__,
                 $baseDir . '/vendor/jadu/pulsar/tests/unit/Jadu/Pulsar/Twig/Macro/Fixtures',
                 $baseDir . '/vendor/symfony/twig-bridge/Resources/views/Form',
                 $baseDir . '/vendor/jadu/pulsar/views',
-            )
+            ]
         );
 
         $loader->addPath($baseDir . '/vendor/jadu/pulsar/views', 'pulsar');
@@ -64,11 +63,11 @@ abstract class AbstractTypeTestCase extends TestCase
 
         $this->twig = new Environment(
             $loader,
-            array(
+            [
                 'cache' => false,
                 'debug' => true,
                 'strict_variables' => true,
-            )
+            ]
         );
 
         $this->twig->addExtension(new ArrayExtension());
@@ -85,11 +84,11 @@ abstract class AbstractTypeTestCase extends TestCase
 
         $this->twig->addRuntimeLoader(
             new Twig_FactoryRuntimeLoader(
-                array(
+                [
                     FormRenderer::class => function () use ($formEngine) {
                         return new FormRenderer($formEngine);
                     },
-                )
+                ]
             )
         );
 
@@ -123,7 +122,7 @@ abstract class AbstractTypeTestCase extends TestCase
         $element = false;
         if (stristr($output, '<input')) {
             $element = '<input';
-        } else if (stristr($output, '<button')) {
+        } elseif (stristr($output, '<button')) {
             $element = '<button';
         }
 
@@ -161,11 +160,11 @@ abstract class AbstractTypeTestCase extends TestCase
         $actual = $this->twig->render('symfony.html.twig', ['formTest' => $form->createView()]);
         preg_match("/<form[^>]*>(.*?)<\/form>/is", $actual, $actualMatches);
 
-        $this->assertEquals($this->normalizeOutput($expectedMatches[1]), $this->normalizeOutput($actualMatches[1]));
+        static::assertEquals($this->normalizeOutput($expectedMatches[1]), $this->normalizeOutput($actualMatches[1]));
     }
 
-    function test_common()
+    public function test_common()
     {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 }

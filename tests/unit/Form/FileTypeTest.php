@@ -8,15 +8,18 @@ class FileTypeTest extends AbstractTypeTestCase
 {
     /**
      * @group file
-     *
      */
-    public function testFileFieldBasic ()
+    public function testFileFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', FileType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                FileType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/file.html.twig');
@@ -24,14 +27,17 @@ class FileTypeTest extends AbstractTypeTestCase
 
     /**
      * @group file
-     *
      */
-    public function testFileFieldRequired ()
+    public function testFileFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', FileType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                FileType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/file-required.html.twig');
@@ -39,18 +45,21 @@ class FileTypeTest extends AbstractTypeTestCase
 
     /**
      * @group file
-     *
      */
-    public function testFileFieldHelp ()
+    public function testFileFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', FileType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                FileType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/file-help.html.twig');

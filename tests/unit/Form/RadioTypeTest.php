@@ -9,39 +9,51 @@ class RadioTypeTest extends AbstractTypeTestCase
     /**
      * @group radio
      */
-    public function testRadioFieldBasic ()
+    public function testRadioFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RadioType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                RadioType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/radio-label.html.twig');
     }
 
-    public function testRadioFieldRequired ()
+    public function testRadioFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RadioType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                RadioType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/radio-required.html.twig');
     }
 
-    public function testRadioFieldHelp ()
+    public function testRadioFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', RadioType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                RadioType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/radio-help.html.twig');

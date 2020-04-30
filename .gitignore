@@ -42,6 +42,7 @@
 
 # Build data
 /build/
+.php_cs.cache
 
 # Composer PHAR
 /composer.phar

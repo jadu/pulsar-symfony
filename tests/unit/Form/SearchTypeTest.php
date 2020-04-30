@@ -9,13 +9,17 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldBasic ()
+    public function testSearchFieldBasic()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo',
-                'required' => false,
-            ))
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search.html.twig');
@@ -24,12 +28,16 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldRequired ()
+    public function testSearchFieldRequired()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo'
-            ))
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                ]
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search-required.html.twig');
@@ -38,16 +46,20 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldHelp ()
+    public function testSearchFieldHelp()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-help-text' => 'my help text',
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-help-text' => 'my help text',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search-help.html.twig');
@@ -56,16 +68,20 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldPrependText ()
+    public function testSearchFieldPrependText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar'
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search-prepend.html.twig');
@@ -74,16 +90,20 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldAppendText ()
+    public function testSearchFieldAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-append-text' => 'bar'
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-append-text' => 'bar',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search-append.html.twig');
@@ -92,17 +112,21 @@ class SearchTypeTest extends AbstractTypeTestCase
     /**
      * @group search
      */
-    public function testSearchFieldPrependTextAppendText ()
+    public function testSearchFieldPrependTextAppendText()
     {
         $form = $this->formFactory->createBuilder()
-            ->add('field', SearchType::class, array(
-                'label' => 'foo',
-                'required' => false,
-                'attr' => [
-                    'data-prepend-text' => 'bar',
-                    'data-append-text' => 'baz'
+            ->add(
+                'field',
+                SearchType::class,
+                [
+                    'label' => 'foo',
+                    'required' => false,
+                    'attr' => [
+                        'data-prepend-text' => 'bar',
+                        'data-append-text' => 'baz',
+                    ],
                 ]
-            ))
+            )
             ->getForm();
 
         $this->compareOutput($form, 'form/search-prepend-append.html.twig');
