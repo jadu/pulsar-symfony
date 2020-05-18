@@ -1,6 +1,6 @@
 <?php
 
-use Jadu\Pulsar\Form\Type\ToggleSwitchType;
+use Jadu\Bundle\PulsarBundle\Form\ToggleSwitchType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

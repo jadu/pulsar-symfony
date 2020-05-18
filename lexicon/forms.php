@@ -40,6 +40,7 @@ $translator->addResource('xlf', VENDOR_VALIDATOR_DIR . '/Resources/translations/
 $loader = new Twig_Loader_Filesystem(
     [
         __DIR__ . '/views',
+        __DIR__ . '/../src/Resources/views',
         VIEWS_DIR,
         FIXTURES_DIR,
         TEST_LAYOUT_DIR,
@@ -58,7 +59,11 @@ $twig = new Twig_Environment(
     ]
 );
 
-$formEngine = new TwigRendererEngine([]);
+$formEngine = new TwigRendererEngine(
+    [
+        'forms.html.twig'
+    ]
+);
 $formEngine->setEnvironment($twig);
 
 $twig->addExtension(new ArrayExtension());
